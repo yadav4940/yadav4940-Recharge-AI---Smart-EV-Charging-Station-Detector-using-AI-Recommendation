@@ -1,0 +1,7 @@
+project_id = "uvaezladefrqdbbhevwj"
+
+[functions.ev-chatbot]
+verify_jwt = false
+
+[functions.maharashtra-places]
+verify_jwt = false

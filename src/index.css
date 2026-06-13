@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 222 25% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 25% 12%;
+
+    --primary: 217 91% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 25% 94%;
+    --secondary-foreground: 222 25% 18%;
+
+    --muted: 215 25% 95%;
+    --muted-foreground: 215 15% 42%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 88%;
+    --input: 215 20% 90%;
+    --ring: 217 91% 55%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 25% 18%;
+    --sidebar-primary: 217 91% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 25% 95%;
+    --sidebar-accent-foreground: 222 25% 18%;
+    --sidebar-border: 215 20% 88%;
+    --sidebar-ring: 217 91% 55%;
+
+    /* Custom tokens */
+    --glow-primary: 217 91% 55%;
+    --glow-accent: 217 91% 60%;
+    --gradient-electric: linear-gradient(135deg, hsl(217 91% 55%), hsl(199 89% 55%));
+    --gradient-dark: linear-gradient(180deg, hsl(210 20% 98%), hsl(215 25% 94%));
+    --shadow-glow: 0 4px 16px -4px hsl(217 91% 55% / 0.20);
+    --shadow-glow-accent: 0 4px 16px -4px hsl(217 91% 60% / 0.20);
+  }
+
+  .dark {
+    --background: 210 20% 98%;
+    --foreground: 222 25% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 25% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 25% 12%;
+    --primary: 217 91% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 215 25% 94%;
+    --secondary-foreground: 222 25% 18%;
+    --muted: 215 25% 95%;
+    --muted-foreground: 215 15% 42%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 215 20% 88%;
+    --input: 215 20% 90%;
+    --ring: 217 91% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Outfit', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card border border-border rounded-xl shadow-sm;
+  }
+  .glow-border {
+    @apply border border-primary/30;
+    box-shadow: var(--shadow-glow);
+  }
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-electric);
+  }
+  .electric-pulse {
+    animation: electric-pulse 2s ease-in-out infinite;
+  }
+}
+
+@keyframes electric-pulse {
+  0%, 100% { box-shadow: 0 0 5px hsl(185 100% 50% / 0.3); }
+  50% { box-shadow: 0 0 25px hsl(185 100% 50% / 0.6), 0 0 50px hsl(185 100% 50% / 0.2); }
+}
+
+@keyframes ev-drive {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(calc(100vw + 100%)); }
+}
+
+@keyframes charge-bar {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.animate-ev-drive {
+  animation: ev-drive 3s ease-in-out forwards;
+}
+
+.animate-charge-bar {
+  animation: charge-bar 2.5s ease-out forwards;
+}
